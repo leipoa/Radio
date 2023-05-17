@@ -5,6 +5,17 @@ package org.example;
 public class Radio {
     private int currentStation;
     private int currentVolume;
+    private int maxStation;
+    private int minStation = 0;
+    private int maxVolume = 100;
+    private int minVolume = 0;
+    public Radio () {
+        this.maxStation = 9;
+    }
+    public Radio (int stationsSize){
+        this.maxStation = stationsSize - 1;
+
+    }
 
     public int getCurrentStation() {
         return currentStation;
@@ -15,50 +26,50 @@ public class Radio {
     }
 
     public void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation < 0) {
+        if (newCurrentStation < minStation) {
             return;
         }
-        if (newCurrentStation > 9) {
+        if (newCurrentStation > maxStation) {
             return;
         }
         currentStation = newCurrentStation;
     }
 
     public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume < 0) {
+        if (newCurrentVolume < minVolume) {
             return;
         }
-        if (newCurrentVolume > 10) {
+        if (newCurrentVolume > maxVolume) {
             return;
         }
         currentVolume = newCurrentVolume;
     }
 
     public void nextStation() {
-        if (currentStation != 9) {
+        if (currentStation != maxStation) {
             currentStation = currentStation + 1;
         }
         else {
-            currentStation = 0;
+            currentStation = minStation;
         }
 
     }
 
     public void increaseVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < maxVolume) {
             currentVolume = currentVolume + 1;
         }
-        if (currentVolume == 10) {
-            currentVolume = 10;
+        if (currentVolume == maxVolume) {
+            currentVolume = maxVolume;
         }
     }
 
     public void prevStation() {
-        if (currentStation > 0) {
+        if (currentStation > minStation) {
             currentStation = currentStation - 1;
         }
         if (currentStation == 0) {
-            currentStation = 9;
+            currentStation = maxStation;
         }
     }
 
