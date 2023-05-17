@@ -53,6 +53,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void nextStationAboveMax() {
         Radio x = new Radio();
@@ -78,6 +79,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void prevStationBelowMin() {
         Radio x = new Radio();
@@ -90,6 +92,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shoudSetVolume() {
         Radio x = new Radio();
@@ -101,6 +104,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shoudNotSetVolumeBelowMin() {
         Radio x = new Radio();
@@ -112,6 +116,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shoudNotSetVolumeAboveMax() {
         Radio x = new Radio();
@@ -123,6 +128,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void increaseVolume() {
         Radio x = new Radio();
@@ -135,6 +141,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void increaseVolumeAboveMax() {
         Radio x = new Radio();
@@ -147,6 +154,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void downgradeVolume() {
         Radio x = new Radio();
@@ -159,6 +167,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void downgradeVolumeBelowMin() {
         Radio x = new Radio();
@@ -170,5 +179,18 @@ public class RadioTest {
         int actual = x.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void nextStationBeforeLast() {
+        Radio x = new Radio();
+
+        x.setCurrentStation(8);
+        x.nextStation();
+
+        int expected = 9;
+        int actual = x.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+
     }
 }

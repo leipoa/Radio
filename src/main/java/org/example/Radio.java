@@ -3,8 +3,8 @@ package org.example;
 
 
 public class Radio {
-    public int currentStation;
-    public int currentVolume;
+    private int currentStation;
+    private int currentVolume;
 
     public int getCurrentStation() {
         return currentStation;
@@ -35,12 +35,13 @@ public class Radio {
     }
 
     public void nextStation() {
-        if (currentStation < 9) {
-            currentStation = currentStation +1;
+        if (currentStation != 9) {
+            currentStation = currentStation + 1;
         }
-        if (currentStation == 9) {
+        else {
             currentStation = 0;
         }
+
     }
 
     public void increaseVolume() {
@@ -65,7 +66,7 @@ public class Radio {
         if (currentVolume > 0) {
             currentVolume = currentVolume - 1;
         }
-        if (currentVolume == 0){
+        if (currentVolume == 0) {
             currentVolume = 0;
         }
     }
