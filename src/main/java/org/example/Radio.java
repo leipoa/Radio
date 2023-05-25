@@ -1,7 +1,6 @@
 package org.example;
 
 
-
 public class Radio {
     private int currentStation;
     private int currentVolume;
@@ -37,8 +36,7 @@ public class Radio {
     public void nextStation() {
         if (currentStation != 9) {
             currentStation = currentStation + 1;
-        }
-        else {
+        } else {
             currentStation = 0;
         }
 
@@ -54,10 +52,9 @@ public class Radio {
     }
 
     public void prevStation() {
-        if (currentStation > 0) {
+        if (currentStation != 0) {
             currentStation = currentStation - 1;
-        }
-        if (currentStation == 0) {
+        } else {
             currentStation = 9;
         }
     }
